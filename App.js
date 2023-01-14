@@ -73,5 +73,7 @@ const tabBarIconStyle = StyleSheet.create({
   },
   Icon:{
     bottom:0,
+    alignItems:'center',
+    justifyContent:'center'
   }
 })
