@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
 const tabBarIconStyle = StyleSheet.create({
   activeIcon:{
     bottom:15,
+    alignItems:'center',
+    justifyContent:'center'
   },
   Icon:{
     bottom:0,
