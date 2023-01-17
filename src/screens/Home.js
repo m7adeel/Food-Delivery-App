@@ -15,7 +15,7 @@ export default function Home() {
       <StatusBar title="Green Gross Pizza" desc="Fresh Line Pizza"/>
       <CategoryBar />
       <ScrollView>
-        <FoodItemDesc image={pizzaImage}/>
+      <FoodItemDesc image={pizzaImage}/>
       </ScrollView>
     </View>
   )
