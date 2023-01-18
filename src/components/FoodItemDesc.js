@@ -57,7 +57,7 @@ export default function FoodItemDesc({ image, name }) {
   });
 
   return (
-    <View>
+    <View style={{marginBottom:50}}>
       <SView
         className="flex-row align-center justify-center mt-5 relative"
         style={{ width: 350, height: 320 }}
@@ -124,7 +124,10 @@ export default function FoodItemDesc({ image, name }) {
       </SView>
       <SView>
         <SView className="justify-center align-middle flex-row">
-          <SView className="mb-10" style={{width:'90%', height:1, backgroundColor:'#f2f2f2'}}></SView>
+          <SView style={{width:'90%', height:1, backgroundColor:'#f2f2f2'}}></SView>
+          </SView>
+          <SView className="py-16">
+            <SText>Calories from Fats</SText>
           </SView>
       </SView>
     </View>

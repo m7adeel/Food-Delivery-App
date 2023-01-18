@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <View style={{flex:1,backgroundColor:'white'}}>
       <StatusBar title="Green Gross Pizza" desc="Fresh Line Pizza"/>
-      <CategoryBar />
       <ScrollView>
+      <CategoryBar />
       <FoodItemDesc image={pizzaImage}/>
       </ScrollView>
     </View>
