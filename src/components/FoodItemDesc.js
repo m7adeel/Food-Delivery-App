@@ -13,6 +13,20 @@ import { SText, SView } from "../Provider/ComponentProvider";
 
 import { Ionicons } from "@expo/vector-icons";
 
+const Desc = ({title, icon, amount, unit})=>{
+  return(
+    <SView className="flex-1 mx-2 p-4">
+    <SText className="text-gray-400 tracking-widest">{title}</SText>
+    <SView className="flex-row align-middle justify-evenly py-3">
+      <SView className="align-middle justify-center">
+        <Ionicons name={icon} color={"gray"} size={15} />
+      </SView>
+      <SText className="text-xl">{amount} {unit}</SText>
+    </SView>
+  </SView>
+  )
+}
+
 export default function FoodItemDesc({ image, name }) {
   let rotateView = new Animated.Value(0);
 
@@ -100,14 +114,13 @@ export default function FoodItemDesc({ image, name }) {
           style={{ width: 300, backgroundColor: "#f2f2f2", height: 2 }}
         ></Animated.View>
       </SView>
-      <SView className="px-7 py-5 flex-row align-middle justify-evenly">
-        <SView className="flex-1 mx-2">
-          <SText className="text-gray-400 tracking-widest">FOOD ENERGY</SText>
-        </SView>
-        <SView className="h-24 bg-gray-100 rounded-lg" style={{width:2}}></SView>
-        <SView className="flex-1 mx-2">
-          <SText className="text-gray-400 tracking-widest">SERVING SIZE</SText>
-        </SView>
+      <SView className="px-7 py-5 mb-10 flex-row align-middle justify-between">
+        <Desc title="FOOD ENERGY" icon="flash" amount="1250" unit="cal"/>
+        <SView
+          className="h-16 bg-gray-100 rounded-lg mt-3"
+          style={{ width: 2 }}
+        ></SView>
+        <Desc title="SERVING SIZE" icon="fast-food" amount="530" unit="g"/>
       </SView>
     </View>
   );
