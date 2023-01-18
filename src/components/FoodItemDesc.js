@@ -111,16 +111,21 @@ export default function FoodItemDesc({ image, name }) {
       </SView>
       <SView className="flex-row align-middle justify-center">
         <Animated.View
-          style={{ width: 300, backgroundColor: "#f2f2f2", height: 2 }}
+          style={{ width:'90%', backgroundColor: "#f2f2f2", height: 2 }}
         ></Animated.View>
       </SView>
-      <SView className="px-7 py-5 mb-10 flex-row align-middle justify-between">
+      <SView className="px-7 py-5 pb-4 flex-row align-middle justify-between">
         <Desc title="FOOD ENERGY" icon="flash" amount="1250" unit="cal"/>
         <SView
           className="h-16 bg-gray-100 rounded-lg mt-3"
           style={{ width: 2 }}
         ></SView>
         <Desc title="SERVING SIZE" icon="fast-food" amount="530" unit="g"/>
+      </SView>
+      <SView>
+        <SView className="justify-center align-middle flex-row">
+          <SView className="mb-10" style={{width:'90%', height:1, backgroundColor:'#f2f2f2'}}></SView>
+          </SView>
       </SView>
     </View>
   );
