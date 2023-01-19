@@ -9,26 +9,67 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 
-import { SText, SView } from "../Provider/ComponentProvider";
+import { SText, SView, HorizontalBarSeperator } from "../Provider/ComponentProvider";
 
 import { Ionicons } from "@expo/vector-icons";
 
-const Desc = ({title, icon, amount, unit})=>{
-  return(
+const Desc = ({ title, icon, amount, unit }) => {
+  return (
     <SView className="flex-1 mx-2 p-4">
-    <SText className="text-gray-400 tracking-widest">{title}</SText>
-    <SView className="flex-row align-middle justify-evenly py-3">
-      <SView className="align-middle justify-center">
-        <Ionicons name={icon} color={"gray"} size={15} />
+      <SText className="text-gray-400 tracking-widest">{title}</SText>
+      <SView className="flex-row align-middle justify-evenly py-3">
+        <SView className="align-middle justify-center">
+          <Ionicons name={icon} color={"gray"} size={15} />
+        </SView>
+        <SText className="text-xl">
+          {amount} {unit}
+        </SText>
       </SView>
-      <SText className="text-xl">{amount} {unit}</SText>
     </SView>
-  </SView>
+  );
+};
+
+const EnegryDesc = ()=>{
+  return (
+    <SView>
+        <SView className="py-8 mx-auto flex-col" style={{ width: "90%" }}>
+          <SView className="flex-row justify-between mb-2">
+            <SText className="text-gray-400 font-bold text-xs">Calories from Fats</SText>
+            <SView className="flex-row justify-between" style={{width:'30%'}}>
+              <SText className="text-xs text-green-600/75 font-semibold">300 cal</SText>
+              <SText></SText>
+            </SView>
+          </SView>
+          <SView  className="flex-row justify-between">
+            <SText className="text-gray-400">Total Fats</SText>
+            <SView className="flex-row justify-between" style={{width:'30%'}}>
+              <SText className="text-xs text-green-600/75 font-semibold">150 g</SText>
+              <SText className="text-xs text-gray-400">28%</SText>
+            </SView>
+          </SView>
+          <SView className="flex-row justify-between">
+            <SText className="text-gray-400">Total Carbohydrates</SText>
+            <SView className="flex-row justify-between" style={{width:'30%'}}>
+              <SText className="text-xs text-green-600/75 font-semibold">275 g</SText>
+              <SText className="text-xs text-gray-400">52%</SText>
+            </SView>
+          </SView>
+          <SView className="flex-row justify-between">
+            <SText className="text-gray-400">Protein</SText>
+            <SView className="flex-row justify-between" style={{width:'30%'}}>
+              <SText className="text-xs text-green-600/75 font-semibold">105 g</SText>
+              <SText className="text-xs text-gray-400">20%</SText>
+            </SView>
+          </SView>
+        </SView>
+      </SView>
   )
 }
 
 export default function FoodItemDesc({ image, name }) {
   let rotateView = new Animated.Value(0);
+
+  const [loading, setLoading] = useState(true);
 
   const startAnimation = () => {
     Animated.timing(rotateView, {
@@ -57,7 +98,7 @@ export default function FoodItemDesc({ image, name }) {
   });
 
   return (
-    <View style={{marginBottom:50}}>
+    <View style={{ marginBottom: 50 }}>
       <SView
         className="flex-row align-center justify-center mt-5 relative"
         style={{ width: 350, height: 320 }}
@@ -73,6 +114,9 @@ export default function FoodItemDesc({ image, name }) {
               // { rotateY: RotateData2 },
               { rotateZ: RotateData },
             ],
+          }}
+          onLoad={() => {
+            setLoading(false);
           }}
         />
       </SView>
@@ -109,27 +153,19 @@ export default function FoodItemDesc({ image, name }) {
           </SView>
         </TouchableOpacity>
       </SView>
-      <SView className="flex-row align-middle justify-center">
-        <Animated.View
-          style={{ width:'90%', backgroundColor: "#f2f2f2", height: 2 }}
-        ></Animated.View>
-      </SView>
+      <HorizontalBarSeperator />
       <SView className="px-7 py-5 pb-4 flex-row align-middle justify-between">
-        <Desc title="FOOD ENERGY" icon="flash" amount="1250" unit="cal"/>
+        <Desc title="FOOD ENERGY" icon="flash" amount="1250" unit="cal" />
         <SView
           className="h-16 bg-gray-100 rounded-lg mt-3"
           style={{ width: 2 }}
         ></SView>
-        <Desc title="SERVING SIZE" icon="fast-food" amount="530" unit="g"/>
+        <Desc title="SERVING SIZE" icon="fast-food" amount="530" unit="g" />
       </SView>
-      <SView>
-        <SView className="justify-center align-middle flex-row">
-          <SView style={{width:'90%', height:1, backgroundColor:'#f2f2f2'}}></SView>
-          </SView>
-          <SView className="py-16">
-            <SText>Calories from Fats</SText>
-          </SView>
-      </SView>
+      <HorizontalBarSeperator />
+      <EnegryDesc />
+      <HorizontalBarSeperator />
+      
     </View>
   );
 }
