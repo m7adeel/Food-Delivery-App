@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 
-import { SText, SView, HorizontalBarSeperator } from "../Provider/ComponentProvider";
+import { SText, SView, HorizontalBarSeperator, RatingStar,RatingDisplay } from "../Provider/ComponentProvider";
 
 import { Ionicons } from "@expo/vector-icons";
 
@@ -165,7 +165,9 @@ export default function FoodItemDesc({ image, name }) {
       <HorizontalBarSeperator />
       <EnegryDesc />
       <HorizontalBarSeperator />
-      
+      <SView>
+        <RatingDisplay rating={5} classNames="flex-row align-center" iconSize={40}/>
+      </SView>
     </View>
   );
 }
