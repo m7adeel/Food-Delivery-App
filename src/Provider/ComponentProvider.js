@@ -34,11 +34,24 @@ export const RatingDisplay = ({rating,classNames,iconSize,style})=>{
         rating_star_display.push(<RatingStar color="green" size={iconSize}/>)
     }
 
+    if(complete_stars < rating){
+        rating_star_display.push(<HalfStar size={iconSize} color="green"/>)
+    }
+
     return(
         <SView className={classNames} style={[style]}>
             {rating_star_display}
         </SView>
     )
+}
+
+export const HalfStar = ({color,size})=>{
+    return (
+        <SView>
+            <Ionicons name="star-half" color={color} style={{position:'absolute'}} size={size}/>
+        <Ionicons name="star-outline" size={size}/>
+        </SView>
+    )    
 }
 
 export const RatingStar = ({color,size})=>{

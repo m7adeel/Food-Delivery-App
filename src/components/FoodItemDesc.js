@@ -165,9 +165,10 @@ export default function FoodItemDesc({ image, name }) {
       <HorizontalBarSeperator />
       <EnegryDesc />
       <HorizontalBarSeperator />
-      <SView>
-        <RatingDisplay rating={5} classNames="flex-row align-center" iconSize={40}/>
+      <SView className="m-auto py-5" style={{width:'90%'}}>
+        <RatingDisplay rating={4.5} classNames="flex-row align-center justify-evenly" iconSize={40} style={{width:'100%'}}/>
       </SView>
+      <HorizontalBarSeperator />
     </View>
   );
 }
