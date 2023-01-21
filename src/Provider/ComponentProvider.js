@@ -41,7 +41,7 @@ export const RatingDisplay = ({ rating, classNames, iconSize, style }) => {
   for (var i = 0; i < complete_stars; i++) {
     rating_star_display.push(
         // <RatingStar color="green" size={iconSize} />
-        <AnimatedStar half={false} color={"green"} size={35} duration={dur} timingFunction={Easing.linear} timeout={prevTimeout}/>
+        <AnimatedStar half={false} color={"green"} size={35} duration={dur} timingFunction={Easing.circle} timeout={prevTimeout}/>
     );
     prevTimeout += dur
   }
@@ -71,7 +71,6 @@ export const AnimatedStar = ({
   let loading = new Animated.Value(0);
 
   useEffect(() => {
-    console.log(timeout)
     setTimeout(() => {
       Animated.timing(loading, {
         toValue: 1,
@@ -82,14 +81,9 @@ export const AnimatedStar = ({
     }, timeout);
   }, []);
 
-  const a_size = loading.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, size],
-  });
-
   return (
     <Animated.View
-      style={{ width: a_size,opacity:loading }}
+      style={{ opacity:loading }}
     >
       {half ? (
         <HalfStar color={color} size={size} />
