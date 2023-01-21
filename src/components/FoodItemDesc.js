@@ -68,20 +68,15 @@ const EnegryDesc = ()=>{
 
 export default function FoodItemDesc({ image, name }) {
   let rotateView = new Animated.Value(0);
+  const rating = 4.5;
 
-  const [loading, setLoading] = useState(true);
-
-  const startAnimation = () => {
+  useEffect(() => {
     Animated.timing(rotateView, {
       toValue: 1,
       duration: 2500,
       easing: Easing.sin,
       useNativeDriver: false,
-    }).start(() => {});
-  };
-
-  useEffect(() => {
-    startAnimation();
+    }).start();
   }, []);
 
   const RotateData = rotateView.interpolate({
@@ -98,7 +93,7 @@ export default function FoodItemDesc({ image, name }) {
   });
 
   return (
-    <View style={{ marginBottom: 50 }}>
+    <View style={{marginBottom:20}}>
       <SView
         className="flex-row align-center justify-center mt-5 relative"
         style={{ width: 350, height: 320 }}
@@ -114,9 +109,6 @@ export default function FoodItemDesc({ image, name }) {
               // { rotateY: RotateData2 },
               { rotateZ: RotateData },
             ],
-          }}
-          onLoad={() => {
-            setLoading(false);
           }}
         />
       </SView>
@@ -166,9 +158,24 @@ export default function FoodItemDesc({ image, name }) {
       <EnegryDesc />
       <HorizontalBarSeperator />
       <SView className="m-auto py-5" style={{width:'90%'}}>
-        <RatingDisplay rating={4.5} classNames="flex-row align-center justify-evenly" iconSize={40} style={{width:'100%'}}/>
+        <RatingDisplay rating={rating} classNames="flex-row align-center justify-evenly" iconSize={40} style={{width:'100%'}}/>
+        <SView className="pt-5">
+          <SText className="text-lg text-gray-600">Customer reviews</SText>
+          <SText className="text-gray-400 text-sm">{rating} out of 5 stars</SText>
+          <SText>587 reviews</SText>
+        </SView>
       </SView>
       <HorizontalBarSeperator />
+      <SView className="py-5 m-auto" style={{width:'90%'}}>
+        <SText className="pb-5 text-gray-400">Share this item to get 5% off</SText>
+        <SView className="flex-row align-middle justify-evenly" style={{width:'100%'}}>
+          <Ionicons name="logo-instagram" color={"rgb(156,163,175)"} size={40}/>
+          <Ionicons name="logo-facebook" color={"rgb(156,163,175)"} size={40}/>
+          <Ionicons name="logo-twitter" color={"rgb(156,163,175)"} size={40}/>
+          <Ionicons name="logo-pinterest" color={"rgb(156,163,175)"} size={40}/>
+          <Ionicons name="logo-tumblr" color={"rgb(156,163,175)"} size={40}/>
+        </SView>
+      </SView>
     </View>
   );
 }
