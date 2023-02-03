@@ -106,7 +106,6 @@ export default function FoodItemDesc({ image, name }) {
             zIndex: -1,
             transform: [
               { rotateX: RotateData },
-              // { rotateY: RotateData2 },
               { rotateZ: RotateData },
             ],
           }}
@@ -162,7 +161,7 @@ export default function FoodItemDesc({ image, name }) {
         <SView className="pt-5">
           <SText className="text-lg text-gray-600">Customer reviews</SText>
           <SText className="text-gray-400 text-sm">{rating} out of 5 stars</SText>
-          <SText>587 reviews</SText>
+          <SText className="font-serif">587 reviews</SText>
         </SView>
       </SView>
       <HorizontalBarSeperator />

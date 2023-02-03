@@ -40,7 +40,6 @@ export const RatingDisplay = ({ rating, classNames, iconSize, style }) => {
 
   for (var i = 0; i < complete_stars; i++) {
     rating_star_display.push(
-        // <RatingStar color="green" size={iconSize} />
         <AnimatedStar half={false} color={"green"} size={35} duration={dur} timingFunction={Easing.circle} timeout={prevTimeout}/>
     );
     prevTimeout += dur
@@ -48,7 +47,6 @@ export const RatingDisplay = ({ rating, classNames, iconSize, style }) => {
 
   if (complete_stars < rating) {
     rating_star_display.push(
-        // <HalfStar size={iconSize} color="green" />
         <AnimatedStar half={true} color={"green"} size={35} duration={dur} timingFunction={Easing.linear} timeout={prevTimeout}/>
     );
   }
