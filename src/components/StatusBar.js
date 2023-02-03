@@ -12,7 +12,7 @@ export default function StatusBar({ title, desc }) {
   return (
     <SView className="h-24 flex-row align-middle justify-between" style={{justifyContent:'space-around',alignItems:'center'}}>
       <Ionicons name="grid-outline" size={IconSize} color={Color}/>
-      <SView>
+      <SView style={{width:'55%'}}>
         <SText className="text-center font-medium text-lg">{title}</SText>
         <SText className="text-center font-extralight text-sm">{desc}</SText>
       </SView>
